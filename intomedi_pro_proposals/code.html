@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Proposals &amp; AI Engine | Intomedi Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&amp;family=Inter:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .grid-line-x { height: 1px; width: 100%; background-color: #7a7582; opacity: 0.2; }
+        .grid-line-y { width: 1px; height: 100%; background-color: #7a7582; opacity: 0.2; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbc4d2; }
+        
+        /* Subtle architectural pattern */
+        .luxury-grid-bg {
+            background-image: linear-gradient(to right, rgba(122, 117, 130, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(122, 117, 130, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#646464",
+                    "outline": "#7a7582",
+                    "on-primary-fixed": "#1b1b1b",
+                    "surface-bright": "#fbf9f9",
+                    "secondary-fixed": "#e3e2e2",
+                    "error": "#ba1a1a",
+                    "surface-container": "#efeded",
+                    "secondary": "#5e5e5e",
+                    "on-tertiary-fixed": "#1b1b1b",
+                    "on-secondary": "#ffffff",
+                    "primary-container": "#5e5e5e",
+                    "on-secondary-fixed-variant": "#464747",
+                    "surface": "#fbf9f9",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "on-surface-variant": "#494551",
+                    "on-surface": "#1b1c1c",
+                    "tertiary-container": "#5e5e5e",
+                    "primary-fixed": "#e2e2e2",
+                    "outline-variant": "#cbc4d2",
+                    "on-tertiary-container": "#d8d8d8",
+                    "secondary-container": "#e3e2e2",
+                    "primary": "#474747",
+                    "surface-tint": "#5e5e5e",
+                    "inverse-on-surface": "#f2f0f0",
+                    "tertiary-fixed": "#e2e2e2",
+                    "surface-container-highest": "#e3e2e2",
+                    "surface-dim": "#dbdad9",
+                    "on-background": "#1b1c1c",
+                    "inverse-primary": "#c6c6c6",
+                    "on-tertiary-fixed-variant": "#474747",
+                    "on-primary-container": "#d9d9d9",
+                    "background": "#fbf9f9",
+                    "surface-container-low": "#f5f3f3",
+                    "secondary-fixed-dim": "#c7c6c6",
+                    "tertiary": "#464646",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#303031",
+                    "surface-variant": "#e3e2e2",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#c6c6c6",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "surface-container-high": "#e9e8e7",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#474747",
+                    "brand-accent": "#E6A4B4" /* Signature Pink for CTA */
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "section-padding-mobile": "24px",
+                    "section-padding-desktop": "80px",
+                    "grid-gutter": "1px",
+                    "container-max-width": "1440px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Hanken Grotesk"],
+                    "body-sm": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "data-mono": ["Inter"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "label-caps": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "data-mono": ["13px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "headline-md": ["20px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                    "label-caps": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface font-body-lg text-on-surface luxury-grid-bg min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface border-b border-outline dark:border-outline-variant sticky top-0 z-50">
+<nav class="flex justify-between items-center px-section-padding-desktop w-full h-20 max-w-container-max-width mx-auto">
+<div class="flex items-center gap-12">
+<img alt="Intomedi Pro Logo" class="h-8 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa6g82nq4kozZ5kKs2DDFEKw0ym9mSdC2-USTeztT01sDunMdlLIemItLA4w2AY4sM5Wh8gdmv-UTStmgRKYttEObQ_V0DEN2ye1x_kkvJotAAyzGnfQMQgn8QAx2dY2qiI8fcJeo_RZ5sFz7zF7qU7ZZpwX3fW2w4xqpQwMN5PiwLAzxBc6U1WR-q942oNiAjjs6je9kDvfpQz68wchbcxS8RutC2xI_42wTl_nDdTx-nZ1ZuE8r46gqfrmdi_MFg-HtAdFwT7jE"/>
+<div class="hidden md:flex items-center gap-8 h-full">
+<a class="font-body-lg text-body-lg text-secondary dark:text-on-secondary-container pb-4 hover:text-primary transition-colors cursor-pointer" href="#">Dashboard</a>
+<a class="font-body-lg text-body-lg text-secondary dark:text-on-secondary-container pb-4 hover:text-primary transition-colors cursor-pointer" href="#">Buyers</a>
+<a class="font-body-lg text-body-lg text-secondary dark:text-on-secondary-container pb-4 hover:text-primary transition-colors cursor-pointer" href="#">Clinical DB</a>
+<a class="font-body-lg text-body-lg text-on-surface dark:text-on-surface border-b-2 border-primary dark:border-primary-fixed pb-4 cursor-pointer" href="#">Proposals</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-surface-container px-4 py-2 border border-outline-variant">
+<span class="material-symbols-outlined text-outline mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 font-body-sm text-body-sm w-48" placeholder="Search proposals..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary cursor-pointer active:opacity-70">notifications</button>
+<button class="material-symbols-outlined text-primary cursor-pointer active:opacity-70">account_circle</button>
+</div>
+</div>
+</nav>
+</header>
+<main class="flex-grow w-full max-w-container-max-width mx-auto px-section-padding-desktop py-12">
+<!-- Header Section with CTA -->
+<section class="mb-12 flex flex-col md:flex-row justify-between items-end gap-6 border-b border-outline pb-8">
+<div class="max-w-2xl">
+<h1 class="font-display-lg text-display-lg mb-4">Sales Intelligence</h1>
+<p class="text-secondary max-w-lg">Manage AI-optimized B2B proposals and formulation optimizations. Precision-driven sales documents curated for clinical excellence.</p>
+</div>
+<button class="flex items-center gap-3 bg-[#E6A4B4] text-white px-8 py-4 font-label-caps text-label-caps uppercase tracking-widest hover:opacity-90 transition-opacity active:scale-[0.98]">
+<span class="material-symbols-outlined">add_circle</span>
+                Create New Proposal
+            </button>
+</section>
+<div class="grid grid-cols-12 gap-0 border border-outline">
+<!-- Left Column: Proposals List -->
+<div class="col-span-12 lg:col-span-8 border-r border-outline bg-surface-container-lowest">
+<div class="bg-surface-container p-4 border-b border-outline flex justify-between items-center">
+<span class="font-label-caps text-label-caps uppercase text-secondary">ACTIVE PROPOSALS</span>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-secondary cursor-pointer">filter_list</span>
+<span class="material-symbols-outlined text-secondary cursor-pointer">sort</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline">
+<th class="p-6 font-label-caps text-label-caps text-secondary uppercase">Proposal Name</th>
+<th class="p-6 font-label-caps text-label-caps text-secondary uppercase">Client</th>
+<th class="p-6 font-label-caps text-label-caps text-secondary uppercase">Date</th>
+<th class="p-6 font-label-caps text-label-caps text-secondary uppercase">Status</th>
+<th class="p-6 font-label-caps text-label-caps text-secondary uppercase text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline/20">
+<!-- Table Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer">
+<td class="p-6">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md mb-1">Peptide Complex V3</span>
+<span class="font-data-mono text-data-mono text-secondary">REF: PR-2024-089</span>
+</div>
+</td>
+<td class="p-6">
+<span class="font-body-lg text-body-lg">Lumina Esthetics Seoul</span>
+</td>
+<td class="p-6">
+<span class="font-data-mono text-data-mono">14 Oct 2024</span>
+</td>
+<td class="p-6">
+<span class="inline-flex px-3 py-1 bg-primary text-white font-label-caps text-[10px] tracking-widest uppercase">Accepted</span>
+</td>
+<td class="p-6 text-right">
+<span class="material-symbols-outlined text-secondary opacity-40 group-hover:opacity-100 transition-opacity">more_vert</span>
+</td>
+</tr>
+<!-- Table Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer">
+<td class="p-6">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md mb-1">Derma-Shield Professional</span>
+<span class="font-data-mono text-data-mono text-secondary">REF: PR-2024-112</span>
+</div>
+</td>
+<td class="p-6">
+<span class="font-body-lg text-body-lg">Kyoto Wellness Group</span>
+</td>
+<td class="p-6">
+<span class="font-data-mono text-data-mono">22 Oct 2024</span>
+</td>
+<td class="p-6">
+<span class="inline-flex px-3 py-1 border border-outline text-on-surface font-label-caps text-[10px] tracking-widest uppercase">Sent</span>
+</td>
+<td class="p-6 text-right">
+<span class="material-symbols-outlined text-secondary opacity-40 group-hover:opacity-100 transition-opacity">more_vert</span>
+</td>
+</tr>
+<!-- Table Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer">
+<td class="p-6">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md mb-1">Active Infusion B2B Kit</span>
+<span class="font-data-mono text-data-mono text-secondary">REF: PR-2024-145</span>
+</div>
+</td>
+<td class="p-6">
+<span class="font-body-lg text-body-lg">Oasis Clinic NYC</span>
+</td>
+<td class="p-6">
+<span class="font-data-mono text-data-mono">28 Oct 2024</span>
+</td>
+<td class="p-6">
+<span class="inline-flex px-3 py-1 bg-secondary-container text-secondary font-label-caps text-[10px] tracking-widest uppercase">Draft</span>
+</td>
+<td class="p-6 text-right">
+<span class="material-symbols-outlined text-secondary opacity-40 group-hover:opacity-100 transition-opacity">more_vert</span>
+</td>
+</tr>
+<!-- Table Row 4 -->
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer">
+<td class="p-6">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md mb-1">Cica-Repair Bulk Contract</span>
+<span class="font-data-mono text-data-mono text-secondary">REF: PR-2024-167</span>
+</div>
+</td>
+<td class="p-6">
+<span class="font-body-lg text-body-lg">Glow Lab Sydney</span>
+</td>
+<td class="p-6">
+<span class="font-data-mono text-data-mono">02 Nov 2024</span>
+</td>
+<td class="p-6">
+<span class="inline-flex px-3 py-1 border border-outline text-on-surface font-label-caps text-[10px] tracking-widest uppercase">Sent</span>
+</td>
+<td class="p-6 text-right">
+<span class="material-symbols-outlined text-secondary opacity-40 group-hover:opacity-100 transition-opacity">more_vert</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-8 flex justify-center border-t border-outline">
+<button class="font-label-caps text-label-caps text-secondary uppercase hover:text-primary transition-colors">View All Archive</button>
+</div>
+</div>
+<!-- Right Column: AI Engine Status Widget -->
+<div class="col-span-12 lg:col-span-4 flex flex-col bg-surface-bright">
+<!-- AI Engine Header -->
+<div class="p-8 border-b border-outline">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+<h2 class="font-headline-md text-headline-md uppercase tracking-tight">AI Engine Status</h2>
+</div>
+<div class="space-y-6">
+<div class="flex justify-between items-end">
+<span class="font-label-caps text-label-caps text-secondary">OPTIMIZATION LOAD</span>
+<span class="font-data-mono text-headline-md">78%</span>
+</div>
+<div class="h-[2px] w-full bg-outline-variant relative">
+<div class="absolute top-0 left-0 h-full bg-primary" style="width: 78%"></div>
+</div>
+</div>
+</div>
+<!-- Recent Formulation Optimizations -->
+<div class="p-8 flex-grow">
+<h3 class="font-label-caps text-label-caps text-secondary mb-6 uppercase">Recent Formulations</h3>
+<div class="space-y-8">
+<!-- Opti Item 1 -->
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-primary" data-weight="fill">science</span>
+<div class="w-px h-full bg-outline-variant mt-2"></div>
+</div>
+<div>
+<h4 class="font-body-lg text-body-lg font-semibold">Hyaluronic V4 Optimization</h4>
+<p class="font-body-sm text-body-sm text-secondary mt-1">AI adjusted bioavailability by +12.4% for Asian skin demographics.</p>
+<p class="font-data-mono text-[11px] text-primary mt-2 uppercase">Successful Completion</p>
+</div>
+</div>
+<!-- Opti Item 2 -->
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-secondary">clinical_notes</span>
+<div class="w-px h-full bg-outline-variant mt-2"></div>
+</div>
+<div>
+<h4 class="font-body-lg text-body-lg font-semibold">Stability Test: Ceramide E6</h4>
+<p class="font-body-sm text-body-sm text-secondary mt-1">Running variance analysis on thermal stability at 45°C.</p>
+<p class="font-data-mono text-[11px] text-outline mt-2 uppercase">Processing...</p>
+</div>
+</div>
+<!-- Opti Item 3 -->
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-primary" data-weight="fill">auto_awesome</span>
+</div>
+<div>
+<h4 class="font-body-lg text-body-lg font-semibold">Market Fit Prediction</h4>
+<p class="font-body-sm text-body-sm text-secondary mt-1">Updated pricing model for MENA region based on raw material fluctuations.</p>
+<p class="font-data-mono text-[11px] text-primary mt-2 uppercase">Action Required</p>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Quick Stats Overlay -->
+<div class="p-8 border-t border-outline bg-primary text-white">
+<div class="grid grid-cols-2 gap-8">
+<div>
+<p class="font-label-caps text-[10px] text-white/60 mb-2 uppercase">Proposals Gen</p>
+<p class="font-headline-lg text-2xl">412</p>
+</div>
+<div>
+<p class="font-label-caps text-[10px] text-white/60 mb-2 uppercase">Efficiency Gain</p>
+<p class="font-headline-lg text-2xl">+34%</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Featured Proposal Card Section (Asymmetric) -->
+<section class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-0 border border-outline">
+<div class="md:col-span-2 relative h-96 border-r border-outline">
+<div class="absolute inset-0 bg-black/40 z-10 flex flex-col justify-end p-12">
+<span class="font-label-caps text-label-caps text-white mb-4 uppercase tracking-[0.2em]">Featured Release</span>
+<h2 class="font-display-lg text-display-lg text-white max-w-lg mb-6">The 2025 Clinical Aesthetic Standard</h2>
+<button class="w-fit px-8 py-3 border border-white text-white font-label-caps text-label-caps uppercase hover:bg-white hover:text-black transition-all">View Full Case Study</button>
+</div>
+<img class="w-full h-full object-cover" data-alt="A macro photograph of high-tech laboratory glassware and aesthetic medicine vials in a pristine, bright setting. The lighting is cold and clinical, highlighting the geometric precision of the glass and the clear liquids within. Soft white reflections and deep black shadows create a sophisticated, high-contrast atmosphere consistent with luxury B2B branding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj02sn8lCDfV_dqCg8zuvNJLnHLENh5jlV61SwZh9kZf7beNIVGopcGI4OJ9P_ke6o2yy9i2fkELJGScG6k8NPfwqFmMe4wDn_i7CtKRR_dIiQDO5w8ka4ngb0OWN5qN_9J7SkAoBV1R-5nFSZX2AITwYsjmxinLEBUpPytFb6uIOj5l6m8H8aqyv-emNV8u_vUUYLwKNNHfnPa-_ymNAKMhaMVou7B0VpBYOo31ogOquBD-NScQzc31Tw-7oktdQtlmogZD2CoIQ"/>
+</div>
+<div class="bg-surface-container p-12 flex flex-col justify-center">
+<span class="material-symbols-outlined text-4xl text-primary mb-6">workspace_premium</span>
+<h3 class="font-headline-lg text-headline-lg mb-4 leading-tight">Master Formulation Portal</h3>
+<p class="text-secondary mb-8">Access the complete archive of optimized molecules and patented stabilization techniques used in our winning proposals.</p>
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span class="font-data-mono text-data-mono">Proprietary Lipid Matrix</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span class="font-data-mono text-data-mono">Ethically Sourced Bio-Peptides</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface dark:bg-surface border-t border-outline dark:border-outline-variant mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center py-12 px-section-padding-desktop w-full max-w-container-max-width mx-auto gap-8">
+<div class="flex flex-col items-center md:items-start gap-4">
+<img alt="Intomedi Pro Logo" class="h-6 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa6g82nq4kozZ5kKs2DDFEKw0ym9mSdC2-USTeztT01sDunMdlLIemItLA4w2AY4sM5Wh8gdmv-UTStmgRKYttEObQ_V0DEN2ye1x_kkvJotAAyzGnfQMQgn8QAx2dY2qiI8fcJeo_RZ5sFz7zF7qU7ZZpwX3fW2w4xqpQwMN5PiwLAzxBc6U1WR-q942oNiAjjs6je9kDvfpQz68wchbcxS8RutC2xI_42wTl_nDdTx-nZ1ZuE8r46gqfrmdi_MFg-HtAdFwT7jE"/>
+<p class="font-label-caps text-label-caps text-secondary dark:text-on-secondary-container">© 2024 Intomedi Pro. Biotechnology and Aesthetic Excellence.</p>
+</div>
+<div class="flex gap-12">
+<div class="flex flex-col gap-3">
+<span class="font-label-caps text-label-caps text-on-surface uppercase mb-2">Platform</span>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-label-caps text-label-caps text-on-surface uppercase mb-2">Support</span>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors" href="#">Support</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for table rows
+        document.querySelectorAll('tbody tr').forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.style.transform = 'translateX(4px)';
+                row.style.transition = 'transform 0.3s cubic-bezier(0.25, 1, 0.5, 1)';
+            });
+            row.addEventListener('mouseleave', () => {
+                row.style.transform = 'translateX(0)';
+            });
+        });
+
+        // Simulating live updates for AI engine pulse
+        const pulse = document.querySelector('.animate-pulse');
+        setInterval(() => {
+            pulse.style.opacity = '0.4';
+            setTimeout(() => { pulse.style.opacity = '1'; }, 1000);
+        }, 2000);
+    </script>
+</body></html>

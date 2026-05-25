@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .grid-line-x { background-image: linear-gradient(to right, #777777 1px, transparent 1px); background-size: 100% 1px; }
+        .grid-line-y { background-image: linear-gradient(to bottom, #777777 1px, transparent 1px); background-size: 1px 100%; }
+        .masking-pattern {
+            background: repeating-linear-gradient(45deg, #e3e2e2, #e3e2e2 2px, #fbf9f9 2px, #fbf9f9 8px);
+        }
+        body { background-color: #fbf9f9; color: #1b1c1c; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #777777; }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#646464",
+                    "outline": "#7a7582",
+                    "on-primary-fixed": "#1b1b1b",
+                    "surface-bright": "#fbf9f9",
+                    "secondary-fixed": "#e3e2e2",
+                    "error": "#ba1a1a",
+                    "surface-container": "#efeded",
+                    "secondary": "#5e5e5e",
+                    "on-tertiary-fixed": "#1b1b1b",
+                    "on-secondary": "#ffffff",
+                    "primary-container": "#5e5e5e",
+                    "on-secondary-fixed-variant": "#464747",
+                    "surface": "#fbf9f9",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "on-surface-variant": "#494551",
+                    "on-surface": "#1b1c1c",
+                    "tertiary-container": "#5e5e5e",
+                    "primary-fixed": "#e2e2e2",
+                    "outline-variant": "#cbc4d2",
+                    "on-tertiary-container": "#d8d8d8",
+                    "secondary-container": "#e3e2e2",
+                    "primary": "#474747",
+                    "surface-tint": "#5e5e5e",
+                    "inverse-on-surface": "#f2f0f0",
+                    "tertiary-fixed": "#e2e2e2",
+                    "surface-container-highest": "#e3e2e2",
+                    "surface-dim": "#dbdad9",
+                    "on-background": "#1b1c1c",
+                    "inverse-primary": "#c6c6c6",
+                    "on-tertiary-fixed-variant": "#474747",
+                    "on-primary-container": "#d9d9d9",
+                    "background": "#fbf9f9",
+                    "surface-container-low": "#f5f3f3",
+                    "secondary-fixed-dim": "#c7c6c6",
+                    "tertiary": "#464646",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#303031",
+                    "surface-variant": "#e3e2e2",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#c6c6c6",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "surface-container-high": "#e9e8e7",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#474747"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "section-padding-mobile": "24px",
+                    "section-padding-desktop": "80px",
+                    "grid-gutter": "1px",
+                    "container-max-width": "1440px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Hanken Grotesk"],
+                    "body-sm": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "data-mono": ["Inter"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "label-caps": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "data-mono": ["13px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "headline-md": ["20px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                    "label-caps": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-surface border-b border-outline-variant sticky top-0 z-50">
+<nav class="flex justify-between items-center px-section-padding-desktop w-full h-20 max-w-container-max-width mx-auto">
+<div class="flex items-center gap-12">
+<img alt="Intomedi Pro Logo" class="h-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa6g82nq4kozZ5kKs2DDFEKw0ym9mSdC2-USTeztT01sDunMdlLIemItLA4w2AY4sM5Wh8gdmv-UTStmgRKYttEObQ_V0DEN2ye1x_kkvJotAAyzGnfQMQgn8QAx2dY2qiI8fcJeo_RZ5sFz7zF7qU7ZZpwX3fW2w4xqpQwMN5PiwLAzxBc6U1WR-q942oNiAjjs6je9kDvfpQz68wchbcxS8RutC2xI_42wTl_nDdTx-nZ1ZuE8r46gqfrmdi_MFg-HtAdFwT7jE"/>
+<div class="hidden md:flex gap-8 h-20 items-center">
+<a class="font-body-lg text-body-lg text-secondary pb-4 hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Dashboard</a>
+<a class="font-body-lg text-body-lg text-secondary pb-4 hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Buyers</a>
+<a class="font-body-lg text-body-lg text-on-surface border-b-2 border-primary pb-4 cursor-pointer active:opacity-70" href="#">Clinical DB</a>
+<a class="font-body-lg text-body-lg text-secondary pb-4 hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Proposals</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="material-symbols-outlined text-primary cursor-pointer">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span>
+</div>
+<span class="material-symbols-outlined text-primary cursor-pointer" data-icon="account_circle">account_circle</span>
+</div>
+</nav>
+</header>
+<main class="max-w-container-max-width mx-auto px-section-padding-desktop py-12">
+<!-- Header & Search -->
+<section class="mb-16">
+<div class="flex flex-col md:flex-row justify-between items-end gap-8 mb-12">
+<div>
+<h1 class="font-display-lg text-display-lg text-primary mb-2">Clinical Database</h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-2xl">Proprietary clinical trials and formulation efficacy reports for professional aesthetic applications.</p>
+</div>
+<div class="w-full md:w-96">
+<div class="relative">
+<input class="w-full bg-transparent border-b-2 border-primary py-3 px-2 font-body-lg focus:outline-none focus:border-on-surface transition-colors placeholder:text-outline" placeholder="Search trials, ingredients, or SKUs..." type="text"/>
+<span class="material-symbols-outlined absolute right-2 top-3 text-primary">search</span>
+</div>
+</div>
+</div>
+<!-- Category Filters -->
+<div class="flex flex-wrap gap-4 border-t border-outline-variant pt-8">
+<button class="px-6 py-2 bg-on-surface text-surface font-label-caps text-label-caps tracking-widest">ALL ARCHIVES</button>
+<button class="px-6 py-2 border border-outline-variant hover:border-on-surface transition-colors font-label-caps text-label-caps tracking-widest text-secondary hover:text-on-surface">ANTI-AGING</button>
+<button class="px-6 py-2 border border-outline-variant hover:border-on-surface transition-colors font-label-caps text-label-caps tracking-widest text-secondary hover:text-on-surface">PIGMENTATION</button>
+<button class="px-6 py-2 border border-outline-variant hover:border-on-surface transition-colors font-label-caps text-label-caps tracking-widest text-secondary hover:text-on-surface">HYDRATION</button>
+<button class="px-6 py-2 border border-outline-variant hover:border-on-surface transition-colors font-label-caps text-label-caps tracking-widest text-secondary hover:text-on-surface">POST-PROCEDURE</button>
+</div>
+</section>
+<!-- Results Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-px gap-y-px bg-outline-variant border border-outline-variant">
+<!-- Card 1 -->
+<article class="bg-surface p-8 flex flex-col h-full hover:shadow-lg transition-shadow duration-300">
+<div class="flex justify-between items-start mb-6">
+<span class="font-label-caps text-label-caps text-on-secondary-container bg-secondary-container px-2 py-1">PHASE III COMPLETE</span>
+<span class="font-data-mono text-data-mono text-secondary">2024.05.12</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4 leading-snug">EGF Complex 0.5% Formulation Efficacy for Dermal Regeneration</h3>
+<div class="flex items-center gap-4 mb-8">
+<div class="flex-1 h-1 bg-surface-container overflow-hidden">
+<div class="h-full bg-primary w-[94%]"></div>
+</div>
+<span class="font-data-mono text-data-mono text-primary">94.2 Score</span>
+</div>
+<div class="mt-auto flex flex-col gap-4">
+<div class="p-3 bg-surface-container-low border-l-2 border-primary">
+<p class="font-label-caps text-label-caps text-secondary mb-1">KEY INGREDIENT</p>
+<p class="font-body-sm text-body-sm font-semibold uppercase">sh-Oligopeptide-1</p>
+</div>
+<button class="w-full py-4 bg-on-surface text-surface font-label-caps text-label-caps tracking-widest hover:bg-opacity-90 transition-all flex justify-between items-center px-6">
+                        VIEW DETAILS
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Card 2 (Sensitive Data) -->
+<article class="bg-surface p-8 flex flex-col h-full hover:shadow-lg transition-shadow duration-300">
+<div class="flex justify-between items-start mb-6">
+<span class="font-label-caps text-label-caps text-error bg-error-container px-2 py-1">RESTRICTED ACCESS</span>
+<span class="font-data-mono text-data-mono text-secondary">2024.03.28</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4 leading-snug">[민감정보 보호] Next-Gen Peptide Inhibitor Trial results</h3>
+<div class="masking-pattern h-20 mb-8 border border-outline-variant flex items-center justify-center">
+<span class="font-label-caps text-label-caps text-secondary bg-surface px-4 py-1 border border-outline-variant">DATA ENCRYPTED</span>
+</div>
+<div class="mt-auto flex flex-col gap-4">
+<div class="p-3 bg-surface-container-low border-l-2 border-outline">
+<p class="font-label-caps text-label-caps text-secondary mb-1">STUDY ID</p>
+<p class="font-data-mono text-data-mono">ITM-EXP-8892-X</p>
+</div>
+<button class="w-full py-4 border border-on-surface text-on-surface font-label-caps text-label-caps tracking-widest hover:bg-on-surface hover:text-surface transition-all flex justify-between items-center px-6">
+                        REQUEST ACCESS
+                        <span class="material-symbols-outlined text-[18px]">lock</span>
+</button>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="bg-surface p-8 flex flex-col h-full hover:shadow-lg transition-shadow duration-300">
+<div class="flex justify-between items-start mb-6">
+<span class="font-label-caps text-label-caps text-on-secondary-container bg-secondary-container px-2 py-1">STABILITY TESTED</span>
+<span class="font-data-mono text-data-mono text-secondary">2024.01.15</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4 leading-snug">Multi-Weight Hyaluronic Acid: Transepidermal Water Loss (TEWL) Analysis</h3>
+<div class="flex items-center gap-4 mb-8">
+<div class="flex-1 h-1 bg-surface-container overflow-hidden">
+<div class="h-full bg-primary w-[88%]"></div>
+</div>
+<span class="font-data-mono text-data-mono text-primary">88.7 Score</span>
+</div>
+<div class="mt-auto flex flex-col gap-4">
+<div class="p-3 bg-surface-container-low border-l-2 border-primary">
+<p class="font-label-caps text-label-caps text-secondary mb-1">HYDRATION INDEX</p>
+<p class="font-body-sm text-body-sm font-semibold uppercase">+42% Retention</p>
+</div>
+<button class="w-full py-4 bg-on-surface text-surface font-label-caps text-label-caps tracking-widest hover:bg-opacity-90 transition-all flex justify-between items-center px-6">
+                        VIEW DETAILS
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Card 4 -->
+<article class="bg-surface p-8 flex flex-col h-full hover:shadow-lg transition-shadow duration-300">
+<div class="flex justify-between items-start mb-6">
+<span class="font-label-caps text-label-caps text-on-secondary-container bg-secondary-container px-2 py-1">CLINICAL AUDIT</span>
+<span class="font-data-mono text-data-mono text-secondary">2023.11.30</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4 leading-snug">Vitamin C Ethyl Ether: Photo-aging Protection and Melanin Suppression</h3>
+<div class="flex items-center gap-4 mb-8">
+<div class="flex-1 h-1 bg-surface-container overflow-hidden">
+<div class="h-full bg-primary w-[91%]"></div>
+</div>
+<span class="font-data-mono text-data-mono text-primary">91.0 Score</span>
+</div>
+<div class="mt-auto flex flex-col gap-4">
+<div class="p-3 bg-surface-container-low border-l-2 border-primary">
+<p class="font-label-caps text-label-caps text-secondary mb-1">CATEGORY</p>
+<p class="font-body-sm text-body-sm font-semibold uppercase">Pigmentation</p>
+</div>
+<button class="w-full py-4 bg-on-surface text-surface font-label-caps text-label-caps tracking-widest hover:bg-opacity-90 transition-all flex justify-between items-center px-6">
+                        VIEW DETAILS
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Card 5 -->
+<article class="bg-surface p-8 flex flex-col h-full hover:shadow-lg transition-shadow duration-300">
+<div class="flex justify-between items-start mb-6">
+<span class="font-label-caps text-label-caps text-on-secondary-container bg-secondary-container px-2 py-1">IN VITRO STUDY</span>
+<span class="font-data-mono text-data-mono text-secondary">2023.10.04</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4 leading-snug">Barrier Repair Kinetics of Ceramide NP and Phytosphingosine Blend</h3>
+<div class="flex items-center gap-4 mb-8">
+<div class="flex-1 h-1 bg-surface-container overflow-hidden">
+<div class="h-full bg-primary w-[82%]"></div>
+</div>
+<span class="font-data-mono text-data-mono text-primary">82.5 Score</span>
+</div>
+<div class="mt-auto flex flex-col gap-4">
+<div class="p-3 bg-surface-container-low border-l-2 border-primary">
+<p class="font-label-caps text-label-caps text-secondary mb-1">RECOVERY TIME</p>
+<p class="font-body-sm text-body-sm font-semibold uppercase">48H Post-Barrier Damage</p>
+</div>
+<button class="w-full py-4 bg-on-surface text-surface font-label-caps text-label-caps tracking-widest hover:bg-opacity-90 transition-all flex justify-between items-center px-6">
+                        VIEW DETAILS
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Card 6 (Sensitive Data) -->
+<article class="bg-surface p-8 flex flex-col h-full hover:shadow-lg transition-shadow duration-300">
+<div class="flex justify-between items-start mb-6">
+<span class="font-label-caps text-label-caps text-error bg-error-container px-2 py-1">RESTRICTED ACCESS</span>
+<span class="font-data-mono text-data-mono text-secondary">2023.08.21</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4 leading-snug">Proprietary [민감정보 보호] for Post-Laser Erythema Reduction</h3>
+<div class="masking-pattern h-20 mb-8 border border-outline-variant flex items-center justify-center">
+<span class="font-label-caps text-label-caps text-secondary bg-surface px-4 py-1 border border-outline-variant">INTERNAL USE ONLY</span>
+</div>
+<div class="mt-auto flex flex-col gap-4">
+<div class="p-3 bg-surface-container-low border-l-2 border-outline">
+<p class="font-label-caps text-label-caps text-secondary mb-1">FORMULATION CODE</p>
+<p class="font-data-mono text-data-mono">INT-MED-0034-ALPHA</p>
+</div>
+<button class="w-full py-4 border border-on-surface text-on-surface font-label-caps text-label-caps tracking-widest hover:bg-on-surface hover:text-surface transition-all flex justify-between items-center px-6">
+                        REQUEST ACCESS
+                        <span class="material-symbols-outlined text-[18px]">lock</span>
+</button>
+</div>
+</article>
+</section>
+<!-- Pagination -->
+<div class="flex justify-center mt-16 gap-4">
+<button class="w-10 h-10 border border-outline-variant flex items-center justify-center text-secondary hover:text-on-surface hover:border-on-surface transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 bg-on-surface text-surface flex items-center justify-center font-data-mono">01</button>
+<button class="w-10 h-10 border border-outline-variant flex items-center justify-center text-secondary hover:text-on-surface hover:border-on-surface transition-colors font-data-mono">02</button>
+<button class="w-10 h-10 border border-outline-variant flex items-center justify-center text-secondary hover:text-on-surface hover:border-on-surface transition-colors font-data-mono">03</button>
+<button class="w-10 h-10 border border-outline-variant flex items-center justify-center text-secondary hover:text-on-surface hover:border-on-surface transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="border-t border-outline-variant bg-surface mt-24">
+<div class="flex flex-col md:flex-row justify-between items-center py-base px-section-padding-desktop w-full max-w-container-max-width mx-auto gap-8">
+<div class="flex flex-col md:flex-row items-center gap-8">
+<img alt="Intomedi Logo" class="h-5 opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa6g82nq4kozZ5kKs2DDFEKw0ym9mSdC2-USTeztT01sDunMdlLIemItLA4w2AY4sM5Wh8gdmv-UTStmgRKYttEObQ_V0DEN2ye1x_kkvJotAAyzGnfQMQgn8QAx2dY2qiI8fcJeo_RZ5sFz7zF7qU7ZZpwX3fW2w4xqpQwMN5PiwLAzxBc6U1WR-q942oNiAjjs6je9kDvfpQz68wchbcxS8RutC2xI_42wTl_nDdTx-nZ1ZuE8r46gqfrmdi_MFg-HtAdFwT7jE"/>
+<p class="font-label-caps text-label-caps text-on-secondary-container">© 2024 Intomedi Pro. Biotechnology and Aesthetic Excellence.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors duration-200" href="#">Privacy Policy</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors duration-200" href="#">Terms of Service</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors duration-200" href="#">Support</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors duration-200" href="#">Contact</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for hover states
+        document.querySelectorAll('article').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.querySelector('.material-symbols-outlined')?.classList.add('translate-x-1');
+            });
+            card.addEventListener('mouseleave', () => {
+                card.querySelector('.material-symbols-outlined')?.classList.remove('translate-x-1');
+            });
+        });
+    </script>
+</body></html>

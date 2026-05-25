@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#646464",
+                    "outline": "#7a7582",
+                    "on-primary-fixed": "#1b1b1b",
+                    "surface-bright": "#fbf9f9",
+                    "secondary-fixed": "#e3e2e2",
+                    "error": "#ba1a1a",
+                    "surface-container": "#efeded",
+                    "secondary": "#5e5e5e",
+                    "on-tertiary-fixed": "#1b1b1b",
+                    "on-secondary": "#ffffff",
+                    "primary-container": "#5e5e5e",
+                    "on-secondary-fixed-variant": "#464747",
+                    "surface": "#fbf9f9",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "on-surface-variant": "#494551",
+                    "on-surface": "#1b1c1c",
+                    "tertiary-container": "#5e5e5e",
+                    "primary-fixed": "#e2e2e2",
+                    "outline-variant": "#cbc4d2",
+                    "on-tertiary-container": "#d8d8d8",
+                    "secondary-container": "#e3e2e2",
+                    "primary": "#474747",
+                    "surface-tint": "#5e5e5e",
+                    "inverse-on-surface": "#f2f0f0",
+                    "tertiary-fixed": "#e2e2e2",
+                    "surface-container-highest": "#e3e2e2",
+                    "surface-dim": "#dbdad9",
+                    "on-background": "#1b1c1c",
+                    "inverse-primary": "#c6c6c6",
+                    "on-tertiary-fixed-variant": "#474747",
+                    "on-primary-container": "#d9d9d9",
+                    "background": "#fbf9f9",
+                    "surface-container-low": "#f5f3f3",
+                    "secondary-fixed-dim": "#c7c6c6",
+                    "tertiary": "#464646",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#303031",
+                    "surface-variant": "#e3e2e2",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#c6c6c6",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "surface-container-high": "#e9e8e7",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#474747",
+                    "brand-pink": "#F226A3"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "section-padding-mobile": "24px",
+                    "section-padding-desktop": "80px",
+                    "grid-gutter": "1px",
+                    "container-max-width": "1440px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Hanken Grotesk"],
+                    "body-sm": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "data-mono": ["Inter"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "label-caps": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "data-mono": ["13px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "headline-md": ["20px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                    "label-caps": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .grid-hairline {
+            background-color: #fbf9f9;
+            display: grid;
+            gap: 1px;
+            background-image: linear-gradient(to right, #cbc4d2 1px, transparent 1px), linear-gradient(to bottom, #cbc4d2 1px, transparent 1px);
+            background-size: 100% 100%;
+        }
+        .luxury-border {
+            border: 1px solid #cbc4d2;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .active-dot {
+            width: 6px;
+            height: 6px;
+            background-color: #F226A3;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-lg text-body-lg antialiased">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface border-b border-outline dark:border-outline-variant docked full-width top-0 z-50">
+<div class="flex justify-between items-center px-section-padding-desktop w-full h-20 max-w-container-max-width mx-auto">
+<div class="flex items-center gap-12">
+<img alt="Intomedi Pro Logo" class="h-8 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa6g82nq4kozZ5kKs2DDFEKw0ym9mSdC2-USTeztT01sDunMdlLIemItLA4w2AY4sM5Wh8gdmv-UTStmgRKYttEObQ_V0DEN2ye1x_kkvJotAAyzGnfQMQgn8QAx2dY2qiI8fcJeo_RZ5sFz7zF7qU7ZZpwX3fW2w4xqpQwMN5PiwLAzxBc6U1WR-q942oNiAjjs6je9kDvfpQz68wchbcxS8RutC2xI_42wTl_nDdTx-nZ1ZuE8r46gqfrmdi_MFg-HtAdFwT7jE"/>
+<nav class="hidden md:flex gap-8 items-center h-20 pt-6">
+<a class="text-secondary dark:text-on-secondary-container pb-4 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200 cursor-pointer active:opacity-70 font-body-lg text-body-lg" href="#">Dashboard</a>
+<a class="text-on-surface dark:text-on-surface border-b-2 border-primary dark:border-primary-fixed pb-4 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200 cursor-pointer active:opacity-70 font-body-lg text-body-lg" href="#">Buyers</a>
+<a class="text-secondary dark:text-on-secondary-container pb-4 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200 cursor-pointer active:opacity-70 font-body-lg text-body-lg" href="#">Clinical DB</a>
+<a class="text-secondary dark:text-on-secondary-container pb-4 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200 cursor-pointer active:opacity-70 font-body-lg text-body-lg" href="#">Proposals</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-[20px]">search</span>
+<input class="bg-surface-container-low border border-outline-variant px-10 py-2 text-body-sm font-body-sm w-64 focus:outline-none focus:border-primary transition-all" placeholder="Search Buyers..." type="text"/>
+</div>
+<div class="flex items-center gap-4 text-primary">
+<span class="material-symbols-outlined cursor-pointer hover:text-brand-pink transition-colors">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-brand-pink transition-colors">account_circle</span>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-container-max-width mx-auto px-section-padding-desktop py-12">
+<!-- Header & Summary Section -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-0 border-t border-l border-r border-outline-variant bg-outline-variant">
+<!-- Title Module -->
+<div class="md:col-span-6 bg-surface p-12 flex flex-col justify-end">
+<span class="font-label-caps text-label-caps text-secondary mb-4 uppercase tracking-widest">B2B Network Overview</span>
+<h1 class="font-display-lg text-display-lg text-on-surface">Buyers Management</h1>
+</div>
+<!-- Stats Module 1 -->
+<div class="md:col-span-3 bg-surface p-12 border-l border-outline-variant flex flex-col justify-center">
+<span class="font-label-caps text-label-caps text-secondary mb-2 uppercase">Total Buyers</span>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-on-surface">1,482</span>
+<span class="text-brand-pink font-data-mono text-data-mono">+12.4%</span>
+</div>
+<div class="mt-4 w-full bg-surface-container h-[2px]">
+<div class="bg-brand-pink h-full w-3/4"></div>
+</div>
+</div>
+<!-- Stats Module 2 -->
+<div class="md:col-span-3 bg-surface p-12 border-l border-outline-variant flex flex-col justify-center">
+<span class="font-label-caps text-label-caps text-secondary mb-2 uppercase">Active Revenue</span>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-on-surface">$2.8M</span>
+<span class="text-on-secondary-container font-data-mono text-data-mono">YTD</span>
+</div>
+<div class="mt-4 w-full bg-surface-container h-[2px]">
+<div class="bg-on-surface h-full w-1/2"></div>
+</div>
+</div>
+</section>
+<!-- Filters & Actions Bar -->
+<div class="flex justify-between items-center py-6 border-b border-l border-r border-outline-variant bg-surface-container-lowest px-8">
+<div class="flex gap-8">
+<button class="font-label-caps text-label-caps border-b-2 border-brand-pink text-on-surface pb-1">ALL CLIENTS</button>
+<button class="font-label-caps text-label-caps text-secondary hover:text-on-surface transition-colors pb-1">CLINICS</button>
+<button class="font-label-caps text-label-caps text-secondary hover:text-on-surface transition-colors pb-1">SPAS &amp; WELLNESS</button>
+<button class="font-label-caps text-label-caps text-secondary hover:text-on-surface transition-colors pb-1">DISTRIBUTORS</button>
+</div>
+<div class="flex gap-4">
+<button class="flex items-center gap-2 border border-on-surface px-6 py-2 font-label-caps text-label-caps hover:bg-on-surface hover:text-surface transition-all">
+<span class="material-symbols-outlined text-[16px]">file_download</span> EXPORT DATA
+                </button>
+<button class="bg-on-surface text-surface px-6 py-2 font-label-caps text-label-caps hover:bg-brand-pink transition-all">
+                    + ADD NEW BUYER
+                </button>
+</div>
+</div>
+<!-- High-Fidelity Data Grid -->
+<section class="border-l border-r border-b border-outline-variant overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high border-b border-outline-variant">
+<th class="px-8 py-4 font-label-caps text-label-caps text-secondary uppercase tracking-widest">Client Name</th>
+<th class="px-8 py-4 font-label-caps text-label-caps text-secondary uppercase tracking-widest">Location</th>
+<th class="px-8 py-4 font-label-caps text-label-caps text-secondary uppercase tracking-widest">Status</th>
+<th class="px-8 py-4 font-label-caps text-label-caps text-secondary uppercase tracking-widest text-right">Last Order Date</th>
+<th class="px-8 py-4 font-label-caps text-label-caps text-secondary uppercase tracking-widest text-right">Total Volume</th>
+<th class="px-8 py-4 font-label-caps text-label-caps text-secondary uppercase tracking-widest text-center">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-bright transition-colors group">
+<td class="px-8 py-6">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">Lumière Aesthetic Clinic</span>
+<span class="font-body-sm text-body-sm text-secondary">Premium Distributor • ID: 49201</span>
+</div>
+</td>
+<td class="px-8 py-6 font-body-lg text-body-lg text-on-surface">Seoul, Gangnam-gu</td>
+<td class="px-8 py-6">
+<span class="inline-flex items-center px-3 py-1 bg-surface-container text-on-surface font-label-caps text-label-caps">
+<span class="active-dot"></span> ACTIVE
+                            </span>
+</td>
+<td class="px-8 py-6 font-data-mono text-data-mono text-right">Oct 24, 2023</td>
+<td class="px-8 py-6 font-data-mono text-data-mono text-right text-brand-pink font-semibold">$245,000</td>
+<td class="px-8 py-6 text-center">
+<button class="material-symbols-outlined text-secondary hover:text-on-surface transition-colors">more_horiz</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-bright transition-colors group">
+<td class="px-8 py-6">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">Elysium Wellness Spa</span>
+<span class="font-body-sm text-body-sm text-secondary">Boutique Spa • ID: 38210</span>
+</div>
+</td>
+<td class="px-8 py-6 font-body-lg text-body-lg text-on-surface">Tokyo, Minato City</td>
+<td class="px-8 py-6">
+<span class="inline-flex items-center px-3 py-1 bg-surface-container text-on-surface font-label-caps text-label-caps">
+<span class="active-dot"></span> ACTIVE
+                            </span>
+</td>
+<td class="px-8 py-6 font-data-mono text-data-mono text-right">Nov 12, 2023</td>
+<td class="px-8 py-6 font-data-mono text-data-mono text-right text-brand-pink font-semibold">$112,400</td>
+<td class="px-8 py-6 text-center">
+<button class="material-symbols-outlined text-secondary hover:text-on-surface transition-colors">more_horiz</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-bright transition-colors group">
+<td class="px-8 py-6">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">Nordic Pharma Corp</span>
+<span class="font-body-sm text-body-sm text-secondary">Regional Distributor • ID: 55219</span>
+</div>
+</td>
+<td class="px-8 py-6 font-body-lg text-body-lg text-on-surface">Stockholm, SE</td>
+<td class="px-8 py-6">
+<span class="inline-flex items-center px-3 py-1 bg-outline-variant text-secondary font-label-caps text-label-caps">
+                                PROSPECT
+                            </span>
+</td>
+<td class="px-8 py-6 font-data-mono text-data-mono text-right">—</td>
+<td class="px-8 py-6 font-data-mono text-data-mono text-right text-secondary">$0</td>
+<td class="px-8 py-6 text-center">
+<button class="material-symbols-outlined text-secondary hover:text-on-surface transition-colors">more_horiz</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-bright transition-colors group">
+<td class="px-8 py-6">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">DermaPrecision Lab</span>
+<span class="font-body-sm text-body-sm text-secondary">Clinical Partner • ID: 12903</span>
+</div>
+</td>
+<td class="px-8 py-6 font-body-lg text-body-lg text-on-surface">Paris, 8th Arr.</td>
+<td class="px-8 py-6">
+<span class="inline-flex items-center px-3 py-1 bg-surface-container text-on-surface font-label-caps text-label-caps">
+<span class="active-dot"></span> ACTIVE
+                            </span>
+</td>
+<td class="px-8 py-6 font-data-mono text-data-mono text-right">Oct 30, 2023</td>
+<td class="px-8 py-6 font-data-mono text-data-mono text-right text-brand-pink font-semibold">$568,200</td>
+<td class="px-8 py-6 text-center">
+<button class="material-symbols-outlined text-secondary hover:text-on-surface transition-colors">more_horiz</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-bright transition-colors group">
+<td class="px-8 py-6">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">Aura Dermatology</span>
+<span class="font-body-sm text-body-sm text-secondary">Hospital Group • ID: 77201</span>
+</div>
+</td>
+<td class="px-8 py-6 font-body-lg text-body-lg text-on-surface">London, Marylebone</td>
+<td class="px-8 py-6">
+<span class="inline-flex items-center px-3 py-1 bg-surface-container text-on-surface font-label-caps text-label-caps">
+<span class="active-dot"></span> ACTIVE
+                            </span>
+</td>
+<td class="px-8 py-6 font-data-mono text-data-mono text-right">Nov 05, 2023</td>
+<td class="px-8 py-6 font-data-mono text-data-mono text-right text-brand-pink font-semibold">$89,300</td>
+<td class="px-8 py-6 text-center">
+<button class="material-symbols-outlined text-secondary hover:text-on-surface transition-colors">more_horiz</button>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination -->
+<div class="bg-surface py-6 px-8 flex justify-between items-center border-t border-outline-variant">
+<span class="font-body-sm text-body-sm text-secondary">Showing 1 to 5 of 1,482 Buyers</span>
+<div class="flex gap-2">
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-on-surface hover:text-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center bg-on-surface text-surface">1</button>
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-on-surface hover:text-surface transition-colors">2</button>
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-on-surface hover:text-surface transition-colors">3</button>
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-on-surface hover:text-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Asymmetric Details/Featured Partner Section -->
+<section class="mt-16 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+<div class="md:col-span-7">
+<div class="luxury-border p-12 bg-surface-container-lowest relative overflow-hidden">
+<div class="absolute top-0 right-0 p-8">
+<span class="material-symbols-outlined text-[48px] text-outline-variant opacity-30">verified</span>
+</div>
+<span class="font-label-caps text-label-caps text-brand-pink mb-4 inline-block">PARTNER SPOTLIGHT</span>
+<h3 class="font-headline-lg text-headline-lg mb-6">Strategic Expansion: DA Wellness Group</h3>
+<p class="text-secondary font-body-lg mb-8 max-w-lg">Our largest distributor in the DACH region has increased their inventory volume by 42% this quarter. Their commitment to Intomedi's biotechnology protocols has set a new benchmark for clinical excellence.</p>
+<div class="grid grid-cols-2 gap-8 border-t border-outline-variant pt-8">
+<div>
+<span class="font-label-caps text-label-caps text-secondary block mb-1">Growth Forecast</span>
+<span class="font-data-mono text-data-mono text-on-surface">+18% Q1 2024</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-secondary block mb-1">Stock Level</span>
+<span class="font-data-mono text-data-mono text-on-surface">Critical Reorder Required</span>
+</div>
+</div>
+</div>
+</div>
+<div class="md:col-span-5">
+<div class="aspect-square bg-surface-container relative luxury-border">
+<img class="w-full h-full object-cover grayscale brightness-105" data-alt="A macro photograph of a laboratory setting with high-end aesthetic clinical equipment. The scene features minimalist glass vials and chrome laboratory tools under cool, bright light-mode studio lighting. The color palette is strictly clinical white and gray, with a subtle focus on scientific precision and luxury medical excellence. The composition is clean and architectural." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi8jmbhhnDGaXt0LpA8Z1mARQ2NksLw637S_jd7cK2PvIcIms2fbBYS190UbXMJ3ONr9On0cvu31F7jCyxkkpbjOxzpsQ9wL-IXMhZQbbTdcGSrhRbQ5tv7npjogzh0hYwLS6Oi6YBYUJTgxx73leKw4d_rN4qd4r-kMUUw38IvT4xwHxd5ZlYwImIjfRepgM9mjfEBZ5W5wyHml08daGK6JyxWujy5CshjYCpNnjdXjEy3IgKzhFx31Q7yXHfMWc7bRV8SQ8Y6OQ"/>
+<div class="absolute inset-0 bg-brand-pink opacity-5 mix-blend-multiply"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface dark:bg-surface border-t border-outline dark:border-outline-variant mt-24">
+<div class="flex flex-col md:flex-row justify-between items-center py-base px-section-padding-desktop w-full max-w-container-max-width mx-auto h-24">
+<div class="flex items-center gap-8">
+<span class="font-display-lg text-display-lg text-primary dark:text-primary-fixed text-[24px]">Intomedi Pro</span>
+<span class="font-label-caps text-label-caps text-secondary dark:text-on-secondary-container">© 2024 Intomedi Pro. Biotechnology and Aesthetic Excellence.</span>
+</div>
+<div class="flex gap-8">
+<a class="font-label-caps text-label-caps text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Privacy Policy</a>
+<a class="font-label-caps text-label-caps text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Terms of Service</a>
+<a class="font-label-caps text-label-caps text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Support</a>
+<a class="font-label-caps text-label-caps text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Contact</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for table rows
+        document.querySelectorAll('tbody tr').forEach(row => {
+            row.addEventListener('click', () => {
+                row.classList.add('opacity-50');
+                setTimeout(() => row.classList.remove('opacity-50'), 150);
+            });
+        });
+
+        // Search bar focus effect
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('ring-1', 'ring-brand-pink');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('ring-1', 'ring-brand-pink');
+        });
+    </script>
+</body></html>
